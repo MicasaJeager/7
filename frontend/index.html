@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduChain Registry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-a"></div>
+    <div class="bg-shape bg-shape-b"></div>
+
+    <main class="container">
+      <header class="hero card">
+        <h1>EduChain Diploma & Certificate Registry</h1>
+        <p>Blockchain orqali diplom/sertifikat yaratish, tekshirish va ulashish tizimi.</p>
+
+        <label class="label" for="apiBase">Backend API URL</label>
+        <input id="apiBase" class="input" value="http://localhost:4000/api" />
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>1) Credential Yaratish</h2>
+          <form id="issueForm" class="form">
+            <input class="input" name="studentId" placeholder="Student ID (masalan: STD-1001)" required />
+            <input class="input" name="studentWallet" placeholder="Student wallet (0x...)" required />
+            <select class="input" name="credentialType" required>
+              <option value="diploma">Diploma</option>
+              <option value="certificate">Certificate</option>
+            </select>
+            <input class="input" name="title" placeholder="Title (BSc Computer Science)" required />
+            <input class="input" name="institution" placeholder="Institution" required />
+            <textarea class="input" name="details" placeholder='Qo\'shimcha ma\'lumot JSON (ixtiyoriy)'></textarea>
+            <button class="btn" type="submit">Blockchain'da Yaratish</button>
+          </form>
+          <pre id="issueResult" class="result"></pre>
+        </article>
+
+        <article class="card">
+          <h2>2) Course Result Qayd Etish</h2>
+          <form id="courseForm" class="form">
+            <input class="input" name="studentId" placeholder="Student ID" required />
+            <input class="input" name="studentWallet" placeholder="Student wallet (0x...)" required />
+            <input class="input" name="courseName" placeholder="Course name" required />
+            <input class="input" name="platform" placeholder="Platform (Coursera/Udemy...)" required />
+            <input class="input" name="score" placeholder="Score" required />
+            <input class="input" name="grade" placeholder="Grade (ixtiyoriy)" />
+            <button class="btn" type="submit">Natijani Blockchain'ga Yozish</button>
+          </form>
+          <pre id="courseResult" class="result"></pre>
+        </article>
+
+        <article class="card">
+          <h2>3) Credential Tekshirish</h2>
+          <form id="verifyForm" class="form">
+            <input class="input" name="credentialId" placeholder="Credential ID (0x...)" required />
+            <input class="input" name="metadataHash" placeholder="Metadata hash (0x...) yoki bo\'sh qoldiring" />
+            <button class="btn" type="submit">Haqiqiylikni Tekshirish</button>
+          </form>
+          <pre id="verifyResult" class="result"></pre>
+        </article>
+
+        <article class="card">
+          <h2>4) Talaba Access Berishi</h2>
+          <form id="grantForm" class="form">
+            <input class="input" name="credentialId" placeholder="Credential ID" required />
+            <input class="input" name="viewerAddress" placeholder="Universitet/Ish beruvchi wallet (0x...)" required />
+            <input class="input" name="studentPrivateKey" placeholder="Student private key (demo uchun)" required />
+            <input class="input" name="expiresAt" placeholder="ExpiresAt unix (ixtiyoriy)" />
+            <button class="btn" type="submit">Access Berish</button>
+          </form>
+          <pre id="grantResult" class="result"></pre>
+        </article>
+      </section>
+
+      <section class="card">
+        <div class="registry-head">
+          <h2>5) Yagona Registry</h2>
+          <button id="refreshRegistry" class="btn secondary" type="button">Yangilash</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Student ID</th>
+                <th>Type</th>
+                <th>Title</th>
+                <th>Institution</th>
+                <th>Revoked</th>
+              </tr>
+            </thead>
+            <tbody id="registryBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
