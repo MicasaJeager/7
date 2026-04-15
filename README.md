@@ -65,3 +65,8 @@ Brauzerda oching: `http://localhost:8080`
 - `GET /api/access/check` - access holati
 
 To'liq deploy yo'riqnomasi: `docs/DEPLOY_FREE_SERVERS.md`
+
+## GitHub Pages (Frontend)
+
+Repo ichida GitHub Pages workflow tayyor (`.github/workflows/pages.yml`).
+GitHub'da `Settings -> Pages -> Source: GitHub Actions` yoqilsa, `frontend/` avtomatik deploy bo'ladi.

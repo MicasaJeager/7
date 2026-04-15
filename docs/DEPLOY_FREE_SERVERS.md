@@ -59,3 +59,12 @@ Bu loyiha bepul platformalarda quyidagi arxitektura bilan deploy qilinadi:
 
 - Demo versiyada `studentPrivateKey` API ga yuboriladi (faqat test/development uchun).
 - Production'da wallet signature (SIWE/EIP-712) + relayer bilan xavfsiz oqim ishlatish tavsiya etiladi.
+
+## 5. Frontend deploy (GitHub Pages alternativ)
+
+Repo ichidagi `.github/workflows/pages.yml` push bo'lganda `frontend/` papkani GitHub Pages'ga chiqaradi.
+
+1. GitHub repo Settings -> Pages ga kiring.
+2. Source sifatida `GitHub Actions` ni tanlang.
+3. `master` ga push bo'lgach workflow ishga tushadi.
+4. URL odatda: `https://micasajeager.github.io/7/`
