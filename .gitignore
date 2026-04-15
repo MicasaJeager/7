@@ -6,3 +6,5 @@ backend/data/registry.json
 backend/data/cas/
 .DS_Store
 Thumbs.db
+.localappdata/
+.hardhat/

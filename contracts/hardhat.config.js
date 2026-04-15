@@ -4,7 +4,16 @@ require("dotenv").config();
 const PRIVATE_KEY = process.env.ISSUER_PRIVATE_KEY || "";
 
 module.exports = {
-  solidity: "0.8.24",
+  solidity: {
+    version: "0.8.24",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200
+      },
+      viaIR: true
+    }
+  },
   networks: {
     hardhat: {},
     amoy: {
