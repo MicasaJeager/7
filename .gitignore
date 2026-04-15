@@ -8,3 +8,5 @@ backend/data/cas/
 Thumbs.db
 .localappdata/
 .hardhat/
+contracts/artifacts/
+contracts/cache/
